@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <!-- подключаем стили Mocha, для отображения результатов -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+  <script>
+    mocha.setup('bdd');
+  </script>
+
+  <!-- подключаем chai -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+
+    <meta charset="utf-8" />
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="app"> </div>
+      
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+     
+   <script type="text/babel">
+    const content = "Hello World";
+    var foo = 'bar';
+    const rootElement = document.getElementById('app');
+    const helloWorld = <div className="container">{(() => content)()}</div>;
+    const element = ( 
+      <div class="container">
+        {helloWorld}
+        {helloWorld}
+        {helloWorld}
+      </div>
+    )
+    ReactDOM.render(element, rootElement)
+
+    function sayHello() {
+      return "Hello";
+    }
+   </script>
+
+    <script>
+    var assert = chai.assert;
+  </script>
+    <!-- в этом скрипте находятся спеки -->
+  <script src="test.js"></script>
+   <!-- в элементе с id="mocha" будут результаты тестов -->
+  <div id="mocha"></div>
+    <!-- запустить тесты! -->
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>
